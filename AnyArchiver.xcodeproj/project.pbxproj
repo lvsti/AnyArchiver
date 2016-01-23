@@ -7,20 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE19A2861C53C49400A28EB0 /* SevenZip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E84909C21C28692800AF6466 /* SevenZip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE19A2871C53C49400A28EB0 /* ZipZap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ADF1C275BE0007DDC6A /* ZipZap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE19A2891C53C4DC00A28EB0 /* test.pez in Resources */ = {isa = PBXBuildFile; fileRef = BE19A2881C53C4DC00A28EB0 /* test.pez */; };
-		BE19A28B1C53C6DE00A28EB0 /* ArchiverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A28A1C53C6DE00A28EB0 /* ArchiverType.swift */; };
 		BE19A2931C53C9A200A28EB0 /* UT_PezBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A2921C53C9A200A28EB0 /* UT_PezBrowser.swift */; };
 		BE19A2951C53C9A200A28EB0 /* UltimateFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ACD1C2759B2007DDC6A /* UltimateFramework.framework */; };
 		BE19A29B1C53C9EC00A28EB0 /* PezBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471ADB1C275A09007DDC6A /* PezBrowser.swift */; };
-		BE19A29C1C53C9F000A28EB0 /* ArchiverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A28A1C53C6DE00A28EB0 /* ArchiverType.swift */; };
 		BE19A29D1C53C9F300A28EB0 /* Archivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471AD91C2759BF007DDC6A /* Archivers.swift */; };
-		BE19A29F1C53CA0400A28EB0 /* ArchiverFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A29E1C53CA0400A28EB0 /* ArchiverFactory.swift */; };
 		BE19A2A41C53CCFA00A28EB0 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE19A2A01C53CCF300A28EB0 /* Nimble.framework */; };
 		BE19A2A51C53CD0100A28EB0 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE19A2A11C53CCF300A28EB0 /* Quick.framework */; };
 		BE19A2A81C53D71900A28EB0 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE19A2A01C53CCF300A28EB0 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE19A2A91C53D71C00A28EB0 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE19A2A11C53CCF300A28EB0 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE19A2B11C53F4F900A28EB0 /* ZipZapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */; };
+		BE19A2B21C53F51400A28EB0 /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ADF1C275BE0007DDC6A /* ZipZap.framework */; };
 		E8471A9A1C27528D007DDC6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471A991C27528D007DDC6A /* AppDelegate.swift */; };
 		E8471A9C1C27528D007DDC6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9B1C27528D007DDC6A /* Assets.xcassets */; };
 		E8471A9F1C27528D007DDC6A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9D1C27528D007DDC6A /* MainMenu.xib */; };
@@ -29,10 +27,6 @@
 		E8471AD51C2759B2007DDC6A /* UltimateFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ACD1C2759B2007DDC6A /* UltimateFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8471ADA1C2759BF007DDC6A /* Archivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471AD91C2759BF007DDC6A /* Archivers.swift */; };
 		E8471ADC1C275A09007DDC6A /* PezBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471ADB1C275A09007DDC6A /* PezBrowser.swift */; };
-		E8471ADE1C275A9B007DDC6A /* ZipZapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471ADD1C275A9B007DDC6A /* ZipZapAdapter.swift */; };
-		E8471AE01C275BE0007DDC6A /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ADF1C275BE0007DDC6A /* ZipZap.framework */; };
-		E84909C31C28692800AF6466 /* SevenZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E84909C21C28692800AF6466 /* SevenZip.framework */; };
-		E84909C51C28693C00AF6466 /* SevenZipAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84909C41C28693C00AF6466 /* SevenZipAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +64,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				BE19A2861C53C49400A28EB0 /* SevenZip.framework in Embed Frameworks */,
 				BE19A2871C53C49400A28EB0 /* ZipZap.framework in Embed Frameworks */,
 				E8471AD51C2759B2007DDC6A /* UltimateFramework.framework in Embed Frameworks */,
 			);
@@ -81,13 +74,12 @@
 
 /* Begin PBXFileReference section */
 		BE19A2881C53C4DC00A28EB0 /* test.pez */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pez; sourceTree = "<group>"; };
-		BE19A28A1C53C6DE00A28EB0 /* ArchiverType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverType.swift; sourceTree = "<group>"; };
 		BE19A2901C53C9A200A28EB0 /* UltimateFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UltimateFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE19A2921C53C9A200A28EB0 /* UT_PezBrowser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UT_PezBrowser.swift; sourceTree = "<group>"; };
 		BE19A2941C53C9A200A28EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE19A29E1C53CA0400A28EB0 /* ArchiverFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverFactory.swift; sourceTree = "<group>"; };
 		BE19A2A01C53CCF300A28EB0 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		BE19A2A11C53CCF300A28EB0 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipZapAdapter.swift; sourceTree = "<group>"; };
 		E8471A961C27528D007DDC6A /* AnyArchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyArchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8471A991C27528D007DDC6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8471A9B1C27528D007DDC6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,10 +90,7 @@
 		E8471AD11C2759B2007DDC6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8471AD91C2759BF007DDC6A /* Archivers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archivers.swift; sourceTree = "<group>"; };
 		E8471ADB1C275A09007DDC6A /* PezBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PezBrowser.swift; sourceTree = "<group>"; };
-		E8471ADD1C275A9B007DDC6A /* ZipZapAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipZapAdapter.swift; sourceTree = "<group>"; };
 		E8471ADF1C275BE0007DDC6A /* ZipZap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipZap.framework; path = Carthage/Build/Mac/ZipZap.framework; sourceTree = "<group>"; };
-		E84909C21C28692800AF6466 /* SevenZip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SevenZip.framework; path = Carthage/Build/Mac/SevenZip.framework; sourceTree = "<group>"; };
-		E84909C41C28693C00AF6466 /* SevenZipAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SevenZipAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E84909C31C28692800AF6466 /* SevenZip.framework in Frameworks */,
-				E8471AE01C275BE0007DDC6A /* ZipZap.framework in Frameworks */,
 				E8471AD41C2759B2007DDC6A /* UltimateFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE19A2B21C53F51400A28EB0 /* ZipZap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +137,6 @@
 			children = (
 				BE19A2A01C53CCF300A28EB0 /* Nimble.framework */,
 				BE19A2A11C53CCF300A28EB0 /* Quick.framework */,
-				E84909C21C28692800AF6466 /* SevenZip.framework */,
 				E8471ADF1C275BE0007DDC6A /* ZipZap.framework */,
 				E8471A981C27528D007DDC6A /* AnyArchiver */,
 				E8471ACE1C2759B2007DDC6A /* UltimateFramework */,
@@ -176,8 +163,6 @@
 				E8471A9D1C27528D007DDC6A /* MainMenu.xib */,
 				BE19A2881C53C4DC00A28EB0 /* test.pez */,
 				E8471AA01C27528D007DDC6A /* Info.plist */,
-				E8471ADD1C275A9B007DDC6A /* ZipZapAdapter.swift */,
-				E84909C41C28693C00AF6466 /* SevenZipAdapter.swift */,
 			);
 			path = AnyArchiver;
 			sourceTree = "<group>";
@@ -188,9 +173,8 @@
 				E8471ACF1C2759B2007DDC6A /* UltimateFramework.h */,
 				E8471AD11C2759B2007DDC6A /* Info.plist */,
 				E8471AD91C2759BF007DDC6A /* Archivers.swift */,
-				BE19A29E1C53CA0400A28EB0 /* ArchiverFactory.swift */,
-				BE19A28A1C53C6DE00A28EB0 /* ArchiverType.swift */,
 				E8471ADB1C275A09007DDC6A /* PezBrowser.swift */,
+				BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */,
 			);
 			path = UltimateFramework;
 			sourceTree = "<group>";
@@ -330,7 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE19A29C1C53C9F000A28EB0 /* ArchiverType.swift in Sources */,
 				BE19A29D1C53C9F300A28EB0 /* Archivers.swift in Sources */,
 				BE19A29B1C53C9EC00A28EB0 /* PezBrowser.swift in Sources */,
 				BE19A2931C53C9A200A28EB0 /* UT_PezBrowser.swift in Sources */,
@@ -342,8 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8471A9A1C27528D007DDC6A /* AppDelegate.swift in Sources */,
-				E8471ADE1C275A9B007DDC6A /* ZipZapAdapter.swift in Sources */,
-				E84909C51C28693C00AF6466 /* SevenZipAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,8 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE19A29F1C53CA0400A28EB0 /* ArchiverFactory.swift in Sources */,
-				BE19A28B1C53C6DE00A28EB0 /* ArchiverType.swift in Sources */,
+				BE19A2B11C53F4F900A28EB0 /* ZipZapAdapter.swift in Sources */,
 				E8471ADA1C2759BF007DDC6A /* Archivers.swift in Sources */,
 				E8471ADC1C275A09007DDC6A /* PezBrowser.swift in Sources */,
 			);
@@ -590,6 +570,7 @@
 				BE19A29A1C53C9A200A28EB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8471A911C27528C007DDC6A /* Build configuration list for PBXProject "AnyArchiver" */ = {
 			isa = XCConfigurationList;

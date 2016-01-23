@@ -10,37 +10,18 @@ import Quick
 import Nimble
 import UltimateFramework
 
-class UTArchiverFactory: IArchiverFactory {
-    var lastRequestedType: ArchiverType? = nil
-    var archiver: IArchiver? = nil
-    
-    func archiverForType(type: ArchiverType) -> IArchiver? {
-        lastRequestedType = type
-        return archiver
-    }
-}
-
 class UTArchiver: IArchiver {
-    var lastInvocation: (String, [Any])? = nil
+    var didOpen: Bool = false
     var archive: IArchive? = nil
-    var archiveEntry: IArchiveEntry? = nil
 
-    var type: ArchiverType { return .Zip }
-    
-    func archiveWithURL(url: NSURL, createIfMissing: Bool) throws -> IArchive {
-        lastInvocation = (__FUNCTION__, [url, createIfMissing])
+    func archiveWithURL(url: NSURL) throws -> IArchive {
+        didOpen = true
         return archive!
-    }
-    
-    func archiveEntryWithName(name: String, url: NSURL?) -> IArchiveEntry {
-        lastInvocation = (__FUNCTION__, [name, url])
-        return archiveEntry!
     }
 }
 
 class UTArchive: IArchive {
     var entries: [IArchiveEntry] = []
-    func updateEntries(newEntries: [IArchiveEntry]) throws {}
 }
 
 class UTArchiveEntry: IArchiveEntry {
@@ -62,7 +43,6 @@ class UTArchiveEntry: IArchiveEntry {
 class UT_PezBrowser: QuickSpec {
     override func spec() {
         var sut: PezBrowser!
-        var archiverFactoryMock: UTArchiverFactory!
         var archiverMock: UTArchiver!
         var archiveMock: UTArchive!
 
@@ -76,19 +56,9 @@ class UT_PezBrowser: QuickSpec {
             archiverMock = UTArchiver()
             archiverMock.archive = archiveMock
             
-            archiverFactoryMock = UTArchiverFactory()
-            archiverFactoryMock.archiver = archiverMock
-            
-            sut = PezBrowser(archiverFactory: archiverFactoryMock)
+            sut = PezBrowser(archiver: archiverMock)
         }
 
-        describe("initialization") {
-            it("requests a zip archiver") {
-                // then
-                expect(archiverFactoryMock.lastRequestedType).to(equal(ArchiverType.Zip))
-            }
-        }
-        
         describe("getting the preview") {
             beforeEach {
                 // given
@@ -100,7 +70,7 @@ class UT_PezBrowser: QuickSpec {
 
             it("opens the pez as archive") {
                 // then
-                expect(archiverMock.lastInvocation?.0).to(equal("archiveWithURL(_:createIfMissing:)"))
+                expect(archiverMock.didOpen).to(beTrue())
             }
             
             it("extracts the entry containing the preview") {
