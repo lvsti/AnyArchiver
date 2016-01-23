@@ -9,11 +9,13 @@
 import Foundation
 
 public protocol IArchiver {
-    func archiveWithURL(url: NSURL) throws -> IArchive
+    func archiveWithURL(url: NSURL, createIfMissing: Bool) throws -> IArchive
+    func archiveEntryWithName(name: String, data: NSData?) -> IArchiveEntry
 }
 
 public protocol IArchive {
     var entries: [IArchiveEntry] { get }
+    func updateEntries(newEntries: [IArchiveEntry]) throws
 }
 
 public protocol IArchiveEntry {

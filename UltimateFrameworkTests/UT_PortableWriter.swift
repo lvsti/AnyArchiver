@@ -1,18 +1,20 @@
 //
-//  UT_PezBrowser.swift
-//  UltimateFrameworkTests
+//  UT_PortableWriter.swift
+//  AnyArchiver
 //
 //  Created by Tamás Lustyik on 2016. 01. 23..
 //  Copyright © 2016. Tamas Lustyik. All rights reserved.
 //
 
+import Foundation
+
 import Quick
 import Nimble
 import UltimateFramework
 
-class UT_PezBrowser: QuickSpec {
+class UT_PortableWriter: QuickSpec {
     override func spec() {
-        var sut: PezBrowser!
+        var sut: PortableWriter!
         var archiverMock: UTArchiver!
         var archiveMock: UTArchive!
 
@@ -26,26 +28,27 @@ class UT_PezBrowser: QuickSpec {
             archiverMock = UTArchiver()
             archiverMock.archive = archiveMock
             
-            sut = PezBrowser(archiver: archiverMock)
+            sut = PortableWriter(archiver: archiverMock)
         }
 
-        describe("getting the preview") {
+        describe("writing the version") {
             beforeEach {
                 // given
-                let url = NSURL(fileURLWithPath: "/foo/bar.pez")
+                let url = NSURL(fileURLWithPath: "portable-template.7z")
                 
                 // when
-                let _ = try? sut.previewDataForPezAtURL(url)
+                let _ = try? sut.setVersion(42, forPortableAtURL: url)
             }
 
-            it("opens the pez as archive") {
+            it("opens the portable as archive") {
                 // then
                 expect(archiverMock.didOpen).to(beTrue())
             }
             
-            it("extracts the entry containing the preview") {
+            it("adds a metadata entry to the archive") {
                 // then
-                expect(UTArchiveEntry.lastExtractedEntry).to(equal("prezi/preview.png"))
+                expect(archiveMock.lastUpdatedEntries?.count).to(equal(3))
+                expect(archiveMock.lastUpdatedEntries?.contains({ e in e.name == "metadata.json" }))
             }
         }
     }

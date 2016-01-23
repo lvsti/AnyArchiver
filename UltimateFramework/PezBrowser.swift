@@ -21,7 +21,7 @@ public class PezBrowser {
     }
     
     public func previewDataForPezAtURL(url: NSURL) throws -> NSData {
-        let archive = try _archiver.archiveWithURL(url)
+        let archive = try _archiver.archiveWithURL(url, createIfMissing: false)
         for entry in archive.entries {
             if entry.name == "prezi/preview.png" {
                 return try entry.extractedData()

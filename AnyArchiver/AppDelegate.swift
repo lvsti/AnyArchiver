@@ -17,11 +17,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var imageView: NSImageView!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let browser = PezBrowser(archiver: ZipZapArchiver())
-        
         do {
+            let browser = PezBrowser(archiver: ZipZapArchiver())
             let imageData = try browser.previewDataForPezAtURL(NSBundle.mainBundle().URLForResource("test", withExtension: "pez")!)
             imageView.image = NSImage(data: imageData)
+
+            let writer = PortableWriter(archiver: SevenZipArchiver())
+            try writer.setVersion(42, forPortableAtURL: NSBundle.mainBundle().URLForResource("portable", withExtension: "7z")!)
         } catch {
             NSLog("oops")
         }

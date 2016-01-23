@@ -7,20 +7,13 @@
 //
 
 import Foundation
-import ZipZap
 import UltimateFramework
-
-public enum ZipZapErrorType: ErrorType {
-    case NewEntry
-}
+import ZipZap
 
 extension ZZArchiveEntry: IArchiveEntry {
     public var name: String { return fileName }
     
     public func extractedData() throws -> NSData {
-        if crc32 == 0 {
-            throw ZipZapErrorType.NewEntry
-        }
         return try newData()
     }
 }
@@ -35,15 +28,26 @@ class ZipZapArchive: IArchive {
     // from IArchive:
     
     var entries: [IArchiveEntry] { return _archive.entries.map({ $0 as IArchiveEntry }) }
+    
+    func updateEntries(newEntries: [IArchiveEntry]) throws {
+        try _archive.updateEntries(newEntries.map({ $0 as! ZZArchiveEntry }))
+    }
 }
 
 public class ZipZapArchiver: IArchiver {
     
-    public init() {}
-    
-    public func archiveWithURL(url: NSURL) throws -> IArchive {
-        let zzArchive = try ZZArchive(URL: url)
+    public func archiveWithURL(url: NSURL, createIfMissing create: Bool) throws -> IArchive {
+        let zzArchive = try ZZArchive(URL: url, options: [ZZOpenOptionsCreateIfMissingKey: create])
         return ZipZapArchive(archive: zzArchive)
     }
-
+    
+    public func archiveEntryWithName(name: String, data: NSData?) -> IArchiveEntry {
+        guard let data = data else {
+            return ZZArchiveEntry(directoryName: name)
+        }
+        
+        return ZZArchiveEntry(fileName: name, compress: true) { errorPtr in
+            return data
+        }
+    }
 }
