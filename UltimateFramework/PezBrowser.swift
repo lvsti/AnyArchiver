@@ -16,8 +16,8 @@ public class PezBrowser {
     
     private let _archiver: IArchiver
     
-    public init(archiver: IArchiver) {
-        _archiver = archiver
+    public init(factory: IArchiverFactory) {
+        _archiver = factory.archiverForType(.Zip)!
     }
     
     public func previewDataForPezAtURL(url: NSURL) throws -> NSData {

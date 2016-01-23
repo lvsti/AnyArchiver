@@ -12,8 +12,8 @@ public class PortableWriter {
     
     private let _archiver: IArchiver
     
-    public init(archiver: IArchiver) {
-        _archiver = archiver
+    public init(factory: IArchiverFactory) {
+        _archiver = factory.archiverForType(.SevenZip)!
     }
 
     public func setVersion(version: Int, forPortableAtURL url: NSURL) throws {

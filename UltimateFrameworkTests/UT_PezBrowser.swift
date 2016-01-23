@@ -15,6 +15,7 @@ class UT_PezBrowser: QuickSpec {
         var sut: PezBrowser!
         var archiverMock: UTArchiver!
         var archiveMock: UTArchive!
+        var archiverFactoryMock: UTArchiverFactory!
 
         beforeEach {
             archiveMock = UTArchive()
@@ -26,7 +27,17 @@ class UT_PezBrowser: QuickSpec {
             archiverMock = UTArchiver()
             archiverMock.archive = archiveMock
             
-            sut = PezBrowser(archiver: archiverMock)
+            archiverFactoryMock = UTArchiverFactory()
+            archiverFactoryMock.archiver = archiverMock
+            
+            sut = PezBrowser(factory: archiverFactoryMock)
+        }
+
+        describe("initialization") {
+            it("requests a zip archiver") {
+                // then
+                expect(archiverFactoryMock.lastRequestedType).to(equal(ArchiverType.Zip))
+            }
         }
 
         describe("getting the preview") {

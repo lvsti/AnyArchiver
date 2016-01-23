@@ -17,6 +17,7 @@ class UT_PortableWriter: QuickSpec {
         var sut: PortableWriter!
         var archiverMock: UTArchiver!
         var archiveMock: UTArchive!
+        var archiverFactoryMock: UTArchiverFactory!
 
         beforeEach {
             archiveMock = UTArchive()
@@ -28,9 +29,19 @@ class UT_PortableWriter: QuickSpec {
             archiverMock = UTArchiver()
             archiverMock.archive = archiveMock
             
-            sut = PortableWriter(archiver: archiverMock)
+            archiverFactoryMock = UTArchiverFactory()
+            archiverFactoryMock.archiver = archiverMock
+            
+            sut = PortableWriter(factory: archiverFactoryMock)
         }
 
+        describe("initialization") {
+            it("requests a 7zip archiver") {
+                // then
+                expect(archiverFactoryMock.lastRequestedType).to(equal(ArchiverType.SevenZip))
+            }
+        }
+        
         describe("writing the version") {
             beforeEach {
                 // given

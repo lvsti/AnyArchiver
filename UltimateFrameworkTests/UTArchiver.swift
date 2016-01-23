@@ -9,10 +9,22 @@
 import Foundation
 import UltimateFramework
 
+class UTArchiverFactory: IArchiverFactory {
+    var archiver: IArchiver? = nil
+    var lastRequestedType: ArchiverType? = nil
+    
+    func archiverForType(type: ArchiverType) -> IArchiver? {
+        lastRequestedType = type
+        return archiver
+    }
+}
+
 class UTArchiver: IArchiver {
     var didOpen: Bool = false
     var archive: IArchive? = nil
 
+    var type: ArchiverType = .Zip
+    
     func archiveWithURL(url: NSURL, createIfMissing: Bool) throws -> IArchive {
         didOpen = true
         return archive!

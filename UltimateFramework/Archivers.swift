@@ -8,7 +8,12 @@
 
 import Foundation
 
+public protocol IArchiverFactory {
+    func archiverForType(type: ArchiverType) -> IArchiver?
+}
+
 public protocol IArchiver {
+    var type: ArchiverType { get }
     func archiveWithURL(url: NSURL, createIfMissing: Bool) throws -> IArchive
     func archiveEntryWithName(name: String, data: NSData?) -> IArchiveEntry
 }

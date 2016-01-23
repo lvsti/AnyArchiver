@@ -24,6 +24,8 @@
 		BE19B4231C54069500A28EB0 /* SevenZip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE19B4221C54069500A28EB0 /* SevenZip.framework */; };
 		BE19B4251C54071200A28EB0 /* portable.7z in Resources */ = {isa = PBXBuildFile; fileRef = BE19B4241C54071200A28EB0 /* portable.7z */; };
 		BE19B4261C54072400A28EB0 /* SevenZip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BE19B4221C54069500A28EB0 /* SevenZip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BE19B4281C541D9F00A28EB0 /* ArchiverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19B4271C541D9F00A28EB0 /* ArchiverType.swift */; };
+		BE19B42A1C541E1000A28EB0 /* ArchiverFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19B4291C541E1000A28EB0 /* ArchiverFactory.swift */; };
 		E8471A9A1C27528D007DDC6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471A991C27528D007DDC6A /* AppDelegate.swift */; };
 		E8471A9C1C27528D007DDC6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9B1C27528D007DDC6A /* Assets.xcassets */; };
 		E8471A9F1C27528D007DDC6A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9D1C27528D007DDC6A /* MainMenu.xib */; };
@@ -92,6 +94,8 @@
 		BE19A2BF1C5401D600A28EB0 /* UTArchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UTArchiver.swift; sourceTree = "<group>"; };
 		BE19B4221C54069500A28EB0 /* SevenZip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SevenZip.framework; path = Carthage/Build/Mac/SevenZip.framework; sourceTree = "<group>"; };
 		BE19B4241C54071200A28EB0 /* portable.7z */ = {isa = PBXFileReference; lastKnownFileType = file; path = portable.7z; sourceTree = "<group>"; };
+		BE19B4271C541D9F00A28EB0 /* ArchiverType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverType.swift; sourceTree = "<group>"; };
+		BE19B4291C541E1000A28EB0 /* ArchiverFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArchiverFactory.swift; sourceTree = "<group>"; };
 		E8471A961C27528D007DDC6A /* AnyArchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyArchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8471A991C27528D007DDC6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8471A9B1C27528D007DDC6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,7 +195,9 @@
 			children = (
 				E8471ACF1C2759B2007DDC6A /* UltimateFramework.h */,
 				E8471AD11C2759B2007DDC6A /* Info.plist */,
+				BE19B4291C541E1000A28EB0 /* ArchiverFactory.swift */,
 				E8471AD91C2759BF007DDC6A /* Archivers.swift */,
+				BE19B4271C541D9F00A28EB0 /* ArchiverType.swift */,
 				E8471ADB1C275A09007DDC6A /* PezBrowser.swift */,
 				BE19A2BA1C53FECA00A28EB0 /* PortableWriter.swift */,
 			);
@@ -357,6 +363,8 @@
 				BE19A2BB1C53FECA00A28EB0 /* PortableWriter.swift in Sources */,
 				E8471ADA1C2759BF007DDC6A /* Archivers.swift in Sources */,
 				E8471ADC1C275A09007DDC6A /* PezBrowser.swift in Sources */,
+				BE19B4281C541D9F00A28EB0 /* ArchiverType.swift in Sources */,
+				BE19B42A1C541E1000A28EB0 /* ArchiverFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

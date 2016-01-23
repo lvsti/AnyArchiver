@@ -36,6 +36,8 @@ class ZipZapArchive: IArchive {
 
 public class ZipZapArchiver: IArchiver {
     
+    public let type: ArchiverType = .Zip
+    
     public func archiveWithURL(url: NSURL, createIfMissing create: Bool) throws -> IArchive {
         let zzArchive = try ZZArchive(URL: url, options: [ZZOpenOptionsCreateIfMissingKey: create])
         return ZipZapArchive(archive: zzArchive)

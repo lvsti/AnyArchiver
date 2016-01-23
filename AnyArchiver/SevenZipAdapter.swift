@@ -31,6 +31,8 @@ class SevenZipArchive: IArchive {
 
 class SevenZipArchiver: IArchiver {
 
+    let type: ArchiverType = .SevenZip
+
     func archiveWithURL(url: NSURL, createIfMissing create: Bool) throws -> IArchive {
         let svzArchive = try SVZArchive(URL: url, createIfMissing: create)
         return SevenZipArchive(archive: svzArchive)
