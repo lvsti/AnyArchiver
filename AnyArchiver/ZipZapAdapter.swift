@@ -8,6 +8,7 @@
 
 import Foundation
 import ZipZap
+import UltimateFramework
 
 public enum ZipZapErrorType: ErrorType {
     case NewEntry

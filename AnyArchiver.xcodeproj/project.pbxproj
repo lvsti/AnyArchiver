@@ -17,8 +17,8 @@
 		BE19A2A51C53CD0100A28EB0 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE19A2A11C53CCF300A28EB0 /* Quick.framework */; };
 		BE19A2A81C53D71900A28EB0 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE19A2A01C53CCF300A28EB0 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BE19A2A91C53D71C00A28EB0 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE19A2A11C53CCF300A28EB0 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		BE19A2B11C53F4F900A28EB0 /* ZipZapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */; };
-		BE19A2B21C53F51400A28EB0 /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ADF1C275BE0007DDC6A /* ZipZap.framework */; };
+		BE19A2B41C53F87100A28EB0 /* ZipZapAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE19A2B31C53F87100A28EB0 /* ZipZapAdapter.swift */; };
+		BE19A2B91C53FC3D00A28EB0 /* ZipZap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8471ADF1C275BE0007DDC6A /* ZipZap.framework */; };
 		E8471A9A1C27528D007DDC6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8471A991C27528D007DDC6A /* AppDelegate.swift */; };
 		E8471A9C1C27528D007DDC6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9B1C27528D007DDC6A /* Assets.xcassets */; };
 		E8471A9F1C27528D007DDC6A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8471A9D1C27528D007DDC6A /* MainMenu.xib */; };
@@ -79,7 +79,7 @@
 		BE19A2941C53C9A200A28EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE19A2A01C53CCF300A28EB0 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		BE19A2A11C53CCF300A28EB0 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
-		BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipZapAdapter.swift; sourceTree = "<group>"; };
+		BE19A2B31C53F87100A28EB0 /* ZipZapAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipZapAdapter.swift; sourceTree = "<group>"; };
 		E8471A961C27528D007DDC6A /* AnyArchiver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnyArchiver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8471A991C27528D007DDC6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8471A9B1C27528D007DDC6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8471AD41C2759B2007DDC6A /* UltimateFramework.framework in Frameworks */,
+				BE19A2B91C53FC3D00A28EB0 /* ZipZap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +117,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE19A2B21C53F51400A28EB0 /* ZipZap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +163,7 @@
 				E8471A9D1C27528D007DDC6A /* MainMenu.xib */,
 				BE19A2881C53C4DC00A28EB0 /* test.pez */,
 				E8471AA01C27528D007DDC6A /* Info.plist */,
+				BE19A2B31C53F87100A28EB0 /* ZipZapAdapter.swift */,
 			);
 			path = AnyArchiver;
 			sourceTree = "<group>";
@@ -174,7 +175,6 @@
 				E8471AD11C2759B2007DDC6A /* Info.plist */,
 				E8471AD91C2759BF007DDC6A /* Archivers.swift */,
 				E8471ADB1C275A09007DDC6A /* PezBrowser.swift */,
-				BE19A2B01C53F4F900A28EB0 /* ZipZapAdapter.swift */,
 			);
 			path = UltimateFramework;
 			sourceTree = "<group>";
@@ -325,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8471A9A1C27528D007DDC6A /* AppDelegate.swift in Sources */,
+				BE19A2B41C53F87100A28EB0 /* ZipZapAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE19A2B11C53F4F900A28EB0 /* ZipZapAdapter.swift in Sources */,
 				E8471ADA1C2759BF007DDC6A /* Archivers.swift in Sources */,
 				E8471ADC1C275A09007DDC6A /* PezBrowser.swift in Sources */,
 			);
