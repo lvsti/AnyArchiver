@@ -9,103 +9,37 @@
 import Quick
 import Nimble
 import UltimateFramework
-
-class UTArchiverFactory: IArchiverFactory {
-    var lastRequestedType: ArchiverType? = nil
-    var archiver: IArchiver? = nil
-    
-    func archiverForType(type: ArchiverType) -> IArchiver? {
-        lastRequestedType = type
-        return archiver
-    }
-}
-
-class UTArchiver: IArchiver {
-    var lastInvocation: (String, [Any])? = nil
-    var archive: IArchive? = nil
-    var archiveEntry: IArchiveEntry? = nil
-
-    var type: ArchiverType { return .Zip }
-    
-    func archiveWithURL(url: NSURL, createIfMissing: Bool) throws -> IArchive {
-        lastInvocation = (__FUNCTION__, [url, createIfMissing])
-        return archive!
-    }
-    
-    func archiveEntryWithName(name: String, url: NSURL?) -> IArchiveEntry {
-        lastInvocation = (__FUNCTION__, [name, url])
-        return archiveEntry!
-    }
-}
-
-class UTArchive: IArchive {
-    var entries: [IArchiveEntry] = []
-    func updateEntries(newEntries: [IArchiveEntry]) throws {}
-}
-
-class UTArchiveEntry: IArchiveEntry {
-    static var lastExtractedEntry: String? = nil
-    let name: String
-    let data: NSData
-    
-    init(name: String, data: NSData) {
-        self.name = name
-        self.data = data
-    }
-    
-    func extractedData() throws -> NSData {
-        UTArchiveEntry.lastExtractedEntry = name
-        return NSData()
-    }
-}
+import Cocoa
+import ZipZap
 
 class UT_PezBrowser: QuickSpec {
     override func spec() {
         var sut: PezBrowser!
-        var archiverFactoryMock: UTArchiverFactory!
-        var archiverMock: UTArchiver!
-        var archiveMock: UTArchive!
 
         beforeEach {
-            archiveMock = UTArchive()
-            archiveMock.entries = [
-                UTArchiveEntry(name: "foo/bar.txt", data: NSData()),
-                UTArchiveEntry(name: "prezi/preview.png", data: NSData())
-            ]
-
-            archiverMock = UTArchiver()
-            archiverMock.archive = archiveMock
-            
-            archiverFactoryMock = UTArchiverFactory()
-            archiverFactoryMock.archiver = archiverMock
-            
-            sut = PezBrowser(archiverFactory: archiverFactoryMock)
+            sut = PezBrowser()
         }
 
-        describe("initialization") {
-            it("requests a zip archiver") {
-                // then
-                expect(archiverFactoryMock.lastRequestedType).to(equal(ArchiverType.Zip))
-            }
-        }
-        
         describe("getting the preview") {
-            beforeEach {
+            it("extracts the entry containing the preview") {
                 // given
-                let url = NSURL(fileURLWithPath: "/foo/bar.pez")
+                let url = NSBundle(forClass: UT_PezBrowser.self).URLForResource("test", withExtension: "pez")!
+                
+                let archive = try! ZZArchive(URL: url)
+                var expectedData: NSData!
+                for entry in archive.entries {
+                    if entry.fileName == "prezi/preview.png" {
+                        expectedData = try! entry.newData()
+                        break
+                    }
+                }
                 
                 // when
-                let _ = try? sut.previewDataForPezAtURL(url)
-            }
-
-            it("opens the pez as archive") {
+                let result = try? sut.previewDataForPezAtURL(url)
+                
                 // then
-                expect(archiverMock.lastInvocation?.0).to(equal("archiveWithURL(_:createIfMissing:)"))
-            }
-            
-            it("extracts the entry containing the preview") {
-                // then
-                expect(UTArchiveEntry.lastExtractedEntry).to(equal("prezi/preview.png"))
+                expect(result).notTo(beNil())
+                expect(result).to(equal(expectedData))
             }
         }
     }

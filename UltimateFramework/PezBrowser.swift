@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ZipZap
 
 public enum PezBrowserError: ErrorType {
     case PreviewNotFound
@@ -14,17 +15,13 @@ public enum PezBrowserError: ErrorType {
 
 public class PezBrowser {
     
-    private let _archiver: IArchiver
-    
-    public init(archiverFactory factory: IArchiverFactory) {
-        _archiver = factory.archiverForType(.Zip)!
-    }
+    public init() {}
     
     public func previewDataForPezAtURL(url: NSURL) throws -> NSData {
-        let archive = try _archiver.archiveWithURL(url, createIfMissing: false)
+        let archive = try ZZArchive(URL: url)
         for entry in archive.entries {
-            if entry.name == "prezi/preview.png" {
-                return try entry.extractedData()
+            if entry.fileName == "prezi/preview.png" {
+                return try entry.newData()
             }
         }
         throw PezBrowserError.PreviewNotFound
