@@ -7,15 +7,27 @@
 //
 
 import Cocoa
+import UltimateFramework
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet weak var imageView: NSImageView!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        ArchiverFactory.registerArchiver(ZipZapArchiver())
+        ArchiverFactory.registerArchiver(SevenZipArchiver())
+        
+        let browser = PezBrowser(archiverFactory: ArchiverFactory())
+        
+        do {
+            let imageData = try browser.previewDataForPezAtURL(NSBundle.mainBundle().URLForResource("test", withExtension: "pez")!)
+            imageView.image = NSImage(data: imageData)
+        } catch {
+            NSLog("oops")
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
