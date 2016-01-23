@@ -16,12 +16,12 @@ public class PezBrowser {
     
     private let _archiver: IArchiver
     
-    public init(archiverFactory factory: IArchiverFactory) {
-        _archiver = factory.archiverForType(.Zip)!
+    public init(archiver: IArchiver) {
+        _archiver = archiver
     }
     
     public func previewDataForPezAtURL(url: NSURL) throws -> NSData {
-        let archive = try _archiver.archiveWithURL(url, createIfMissing: false)
+        let archive = try _archiver.archiveWithURL(url)
         for entry in archive.entries {
             if entry.name == "prezi/preview.png" {
                 return try entry.extractedData()

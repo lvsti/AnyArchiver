@@ -17,10 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var imageView: NSImageView!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        ArchiverFactory.registerArchiver(ZipZapArchiver())
-        ArchiverFactory.registerArchiver(SevenZipArchiver())
-        
-        let browser = PezBrowser(archiverFactory: ArchiverFactory())
+        let browser = PezBrowser(archiver: ZipZapArchiver())
         
         do {
             let imageData = try browser.previewDataForPezAtURL(NSBundle.mainBundle().URLForResource("test", withExtension: "pez")!)
